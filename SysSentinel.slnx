@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SysSentinel.Core/SysSentinel.Core.csproj" />
+    <Project Path="src/SysSentinel.Data/SysSentinel.Data.csproj" />
+    <Project Path="src/SysSentinel.UI/SysSentinel.UI.csproj" />
+  </Folder>
+</Solution>

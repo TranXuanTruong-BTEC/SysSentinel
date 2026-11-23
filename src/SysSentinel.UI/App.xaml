@@ -1,0 +1,6 @@
+<Application x:Class="SysSentinel.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Không dùng StartupUri: cửa sổ chính được tạo từ DI sau khi DB khởi tạo xong -->
+    <Application.Resources />
+</Application>
