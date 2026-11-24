@@ -2,8 +2,6 @@ using System.IO;
 using Microsoft.Extensions.Logging;
 
 namespace SysSentinel.UI.Logging;
-
-/// <summary>Logger ghi file theo ngày: %LocalAppData%\SysSentinel\logs\syssentinel-yyyyMMdd.log</summary>
 public sealed class FileLoggerProvider : ILoggerProvider
 {
     private readonly string _directory;
@@ -28,7 +26,7 @@ public sealed class FileLoggerProvider : ILoggerProvider
             }
             catch
             {
-                // Logger không bao giờ được làm sập ứng dụng.
+                
             }
         }
     }

@@ -1,0 +1,22 @@
+// Danh sách API cho Microsoft.Windows.CsWin32 (TÙY CHỌN).
+// Code Ngày 3 dùng P/Invoke thủ công (Native/IpHelperNativeMethods.cs) giống Ngày 2 nên KHÔNG cần file này để build.
+// Nếu muốn chuyển sang CsWin32: thêm <PackageReference Include="Microsoft.Windows.CsWin32" Version="*-*" PrivateAssets="all" />
+// và <AllowUnsafeBlocks>true</AllowUnsafeBlocks> vào SysSentinel.Core.csproj, rồi bỏ comment các dòng dưới.
+//
+// GetExtendedTcpTable
+// GetExtendedUdpTable
+// TCP_TABLE_CLASS
+// UDP_TABLE_CLASS
+// MIB_TCP_STATE
+// MIB_TCPTABLE_OWNER_PID
+// MIB_TCPROW_OWNER_PID
+// MIB_TCP6TABLE_OWNER_PID
+// MIB_TCP6ROW_OWNER_PID
+// MIB_UDPTABLE_OWNER_PID
+// MIB_UDPROW_OWNER_PID
+// MIB_UDP6TABLE_OWNER_PID
+// MIB_UDP6ROW_OWNER_PID
+// AF_INET
+// AF_INET6
+// NO_ERROR
+// ERROR_INSUFFICIENT_BUFFER

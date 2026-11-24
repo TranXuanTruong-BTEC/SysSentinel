@@ -23,8 +23,6 @@ public sealed partial class MainViewModel : ObservableObject
         _profiles = profiles;
         _dbOptions = dbOptions;
     }
-
-    // [RelayCommand] sinh ra thuộc tính LoadCommand (AsyncRelayCommand)
     [RelayCommand]
     private async Task LoadAsync()
     {

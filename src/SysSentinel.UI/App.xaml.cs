@@ -6,6 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SysSentinel.Core.Interfaces;
+using SysSentinel.Core.Services.Network;
+using SysSentinel.Core.Services.Processes;
+using SysSentinel.Core.Services.Security;
 using SysSentinel.Data;
 using SysSentinel.UI.Logging;
 using SysSentinel.UI.ViewModels;
@@ -71,6 +74,15 @@ public partial class App : Application
         // Data layer: connection factory, initializer, repositories
         services.AddSysSentinelData();
 
+        // Core (Ngày 2): chữ ký số + thu thập tiến trình.
+        services.AddSingleton(new SignatureVerifierOptions());
+        services.AddSingleton(new ProcessCollectorOptions());      // mặc định: SignatureMode = Background
+        services.AddSingleton<ISignatureVerifier, AuthenticodeSignatureVerifier>();
+        services.AddSingleton<IProcessCollector, WindowsProcessCollector>();
+
+        // Core (Ngày 3): bảng kết nối mạng theo tiến trình + GeoIP ngoại tuyến.
+        services.AddSysSentinelNetworkCollector();
+
         // UI layer
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<MainWindow>();
@@ -81,7 +93,7 @@ public partial class App : Application
         if (_host is not null)
         {
             _host.StopAsync(TimeSpan.FromSeconds(3)).GetAwaiter().GetResult();
-            _host.Dispose();
+            _host.Dispose();   // dispose luôn collector và GeoIP resolver
         }
         base.OnExit(e);
     }
